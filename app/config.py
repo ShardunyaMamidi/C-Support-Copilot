@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
   database_url: str
   qdrant_url: str = ""
-  qdrant_apt_key: str = ""
+  qdrant_api_key: str = ""
   gemini_api_key: str = ""
   langsmith_api_key: str = ""
 
