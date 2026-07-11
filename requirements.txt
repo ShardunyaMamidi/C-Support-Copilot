@@ -6,3 +6,6 @@ pydantic
 pydantic-settings
 alembic
 datasets
+langchain-text-splitters
+google-genai
+qdrant-client

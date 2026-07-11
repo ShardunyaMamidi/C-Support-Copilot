@@ -14,3 +14,4 @@ wheels/
 sprints/
 project-overview.md
 CLAUDE.md
+ingestion/embedding_cache.jsonl
