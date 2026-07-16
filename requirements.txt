@@ -9,3 +9,8 @@ datasets
 langchain-text-splitters
 google-genai
 qdrant-client
+langchain
+langchain-core
+langchain-google-genai
+langchain-groq
+langsmith

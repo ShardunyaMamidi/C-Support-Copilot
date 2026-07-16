@@ -6,6 +6,7 @@ class Settings(BaseSettings):
   qdrant_api_key: str = ""
   gemini_api_key: str = ""
   langsmith_api_key: str = ""
+  groq_api_key: str = ""
 
   model_config = SettingsConfigDict(env_file=".env")
 

@@ -2,8 +2,7 @@ from fastapi import APIRouter
 from typing import Optional
 from pydantic import BaseModel
 
-from app.modules.rag.embedder import embed_query
-from app.modules.rag.retriever import search
+from app.modules.rag.retriever import retrieve_chunks
 
 rag_router = APIRouter()
 
@@ -21,16 +20,10 @@ class SearchResponse(BaseModel):
 
 @rag_router.post("/search")
 async def search_query(data: SearchRequest):
-  query_vector = await embed_query(data.query)
-  points = await search(query_vector, top_k=data.top_k, tags=data.tags)
+  points = await retrieve_chunks(data.query, data.top_k, data.tags)
 
   return [
-        SearchResponse(
-            title=p.payload["title"],
-            source_url=p.payload.get("source_url"),
-            chunk_text=p.payload["chunk_text"],
-            score=p.score,
-        )
+        SearchResponse(**p)
         for p in points
     ]
 
